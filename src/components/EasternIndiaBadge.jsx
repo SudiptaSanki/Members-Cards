@@ -3,39 +3,45 @@ import React from 'react';
 export default function EasternIndiaBadge() {
   return (
     <div className="badge-wrapper">
-      {/* Crown with 6 spark lines on top */}
+      {/* Crown with 6 spark lines on top (interchanged middle and bottom sparks as requested) */}
       <div className="crown-center">
         <svg
           className="crown-svg"
-          width="74"
-          height="36"
-          viewBox="0 0 80 40"
+          width="76"
+          height="34"
+          viewBox="0 0 260 118"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
           {/* Left sparks */}
-          <line x1="22" y1="13" x2="18" y2="7" stroke="#FBBC04" strokeWidth="2.5" strokeLinecap="round" />
-          <line x1="15" y1="21" x2="6" y2="24" stroke="#FBBC04" strokeWidth="2.8" strokeLinecap="round" />
-          <line x1="19" y1="29" x2="16" y2="30" stroke="#FBBC04" strokeWidth="2.2" strokeLinecap="round" />
+          {/* Top spark */}
+          <line x1="67" y1="27" x2="81" y2="49" stroke="#FBBC04" strokeWidth="8.5" strokeLinecap="round" />
+          {/* Middle spark (interchanged: now LONG) */}
+          <line x1="63" y1="68" x2="31" y2="78" stroke="#FBBC04" strokeWidth="8.5" strokeLinecap="round" />
+          {/* Bottom spark (interchanged: now SHORT) */}
+          <line x1="73" y1="90" x2="60" y2="95" stroke="#FBBC04" strokeWidth="8.5" strokeLinecap="round" />
 
           {/* Right sparks */}
-          <line x1="58" y1="13" x2="62" y2="7" stroke="#FBBC04" strokeWidth="2.5" strokeLinecap="round" />
-          <line x1="65" y1="21" x2="74" y2="24" stroke="#FBBC04" strokeWidth="2.8" strokeLinecap="round" />
-          <line x1="61" y1="29" x2="64" y2="30" stroke="#FBBC04" strokeWidth="2.2" strokeLinecap="round" />
+          {/* Top spark */}
+          <line x1="193" y1="27" x2="179" y2="49" stroke="#FBBC04" strokeWidth="8.5" strokeLinecap="round" />
+          {/* Middle spark (interchanged: now LONG) */}
+          <line x1="197" y1="68" x2="229" y2="78" stroke="#FBBC04" strokeWidth="8.5" strokeLinecap="round" />
+          {/* Bottom spark (interchanged: now SHORT) */}
+          <line x1="187" y1="90" x2="200" y2="95" stroke="#FBBC04" strokeWidth="8.5" strokeLinecap="round" />
 
           {/* Crown Body */}
           <path
-            d="M24 35L21 21L29 25L40 13L51 25L59 21L56 35H24Z"
+            d="M85 109L75 66L100 78L130 42L160 78L185 66L175 109Z"
             fill="#FBBC04"
             stroke="#FBBC04"
-            strokeWidth="1.2"
+            strokeWidth="2"
             strokeLinejoin="round"
           />
           {/* Tip dots */}
-          <circle cx="21" cy="20" r="2.2" fill="#FBBC04" />
-          <circle cx="40" cy="12" r="2.8" fill="#FBBC04" />
-          <circle cx="59" cy="20" r="2.2" fill="#FBBC04" />
+          <circle cx="76" cy="64" r="6.5" fill="#FBBC04" />
+          <circle cx="130" cy="40" r="8" fill="#FBBC04" />
+          <circle cx="184" cy="64" r="6.5" fill="#FBBC04" />
         </svg>
       </div>
 

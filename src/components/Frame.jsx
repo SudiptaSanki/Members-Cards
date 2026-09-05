@@ -26,14 +26,12 @@ export default function Frame({ userPhoto, onRemovePhoto, onUploadClick }) {
             <GdgMark size={58} />
           </div>
 
-          {/* ── Header: TMSL × GDG on Campus ── */}
-          <CommunityLogoHeader />
-
-          {/* ── Eastern India No. 1 GDG Badge + Crown & Rays ── */}
-          <EasternIndiaBadge />
-
-          {/* ── "I AM A PROUD GDG TMSL MEMBER" Heading ── */}
-          <MemberHeading />
+          {/* ── Top Section: Logo Header + Badge + Member Heading (unified to prevent vertical drift) ── */}
+          <div className="card-top-group">
+            <CommunityLogoHeader />
+            <EasternIndiaBadge />
+            <MemberHeading />
+          </div>
 
           {/* ── 1:1 Photo Showcase Area ── */}
           <div
