@@ -64,11 +64,17 @@ export default function App() {
 
     setIsDownloading(true);
     try {
-      const rect = frameEl.getBoundingClientRect();
+      /* The card always has fixed internal dimensions (530 × 705 px)
+         regardless of CSS transform scaling applied for the preview.
+         We tell html2canvas the true intrinsic size so the output is
+         identical on every device — phone, tablet, or desktop. */
+      const CARD_W = 530;
+      const CARD_H = 705;
+
       const canvas = await html2canvas(frameEl, {
         scale: 3,               // 3x for ultra-crisp high-res output
-        width: rect.width,
-        height: rect.height,
+        width: CARD_W,
+        height: CARD_H,
         useCORS: true,
         allowTaint: false,
         backgroundColor: null,
@@ -80,6 +86,12 @@ export default function App() {
           const frame = clonedDoc.getElementById('capture-frame');
           if (frame) {
             frame.classList.add('is-exporting');
+            /* Reset any inherited transforms so html2canvas
+               reads the true 530×705 layout, not the scaled one. */
+            const scaleWrapper = frame.parentElement;
+            if (scaleWrapper) {
+              scaleWrapper.style.transform = 'none';
+            }
           }
         },
       });

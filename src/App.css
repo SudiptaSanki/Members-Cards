@@ -271,25 +271,9 @@
    Responsive
    ══════════════════════════════════════════ */
 
-@media (max-width: 550px) {
-  .preview-section {
-    zoom: 0.85;
-  }
-}
-
-@media (max-width: 480px) {
-  .preview-section {
-    zoom: 0.75;
-  }
-}
-
 @media (max-width: 420px) {
   .app {
     padding: 0 12px;
-  }
-
-  .preview-section {
-    zoom: 0.65;
   }
 
   .app-header {
@@ -300,12 +284,6 @@
     padding: 12px 18px;
     font-size: 14px;
     min-height: 44px;
-  }
-}
-
-@media (max-width: 360px) {
-  .preview-section {
-    zoom: 0.55;
   }
 }
 

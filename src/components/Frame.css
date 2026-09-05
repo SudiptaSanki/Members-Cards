@@ -1,6 +1,6 @@
 /* ══════════════════════════════════════════════════════════════
    Frame.css — GDG TMSL Member Showcase Card Styles
-   Optimized for html2canvas high-res 3x export
+   Fixed-size layout for device-independent html2canvas output
    ══════════════════════════════════════════════════════════════ */
 
 .frame-outer {
@@ -8,18 +8,36 @@
   max-width: 530px;
   margin: 0 auto;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden; /* clip the card when it's wider than container */
+}
+
+/* The scale wrapper sits at exactly CARD_W × CARD_H (set inline)
+   and is scaled down via transform on small screens.
+   Positioned absolute so it doesn't affect flow. */
+.frame-scale-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-origin: top center;
+  /* translateX(-50%) is combined with the inline scale() transform in JSX */
+}
+
+/* Invisible spacer that keeps page flow correct */
+.frame-height-spacer {
+  width: 100%;
 }
 
 /* ── Capture Frame Container (Export boundary) ── */
+/* Fixed px dimensions are set via inline style (530 × 705).
+   No padding-bottom trick — real width & height so html2canvas
+   always renders the exact same pixels on every device. */
 .card-capture-boundary {
   position: relative;
-  width: 100%;
-  padding-bottom: 133%; /* Taller ratio to ensure footer subtitle is visible */
-  height: 0;
   border-radius: 28px;
   overflow: hidden;
   box-sizing: border-box;
-  display: block; /* Removed flex */
+  display: block;
   user-select: none;
 }
 
@@ -272,13 +290,13 @@
 }
 
 /* ── 1:1 Photo Showcase Area ── */
+/* Fixed px size: 66% of card inner width (~486px inner → ~320px) */
 .photo-zone {
   position: relative;
-  width: 66%;
-  padding-bottom: 66%;
-  height: 0;
+  width: 320px;
+  height: 320px;
   margin: 4px 0 6px 0;
-  display: block; /* Removed flex */
+  display: block;
   z-index: 3;
 }
 
@@ -434,12 +452,4 @@
 /* ── Export adjustments (applied during html2canvas capture) ── */
 .is-exporting {
   box-shadow: none !important;
-}
-
-.is-exporting .member-name {
-  margin-bottom: 10px !important;
-}
-
-.is-exporting .member-pill {
-  margin-bottom: 8px !important;
 }
