@@ -140,7 +140,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 4px;
+  margin-top: 3px;
   z-index: 3;
 }
 
@@ -148,7 +148,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: -2px;
+  margin-bottom: -5px;
 }
 
 .crown-svg {
@@ -160,59 +160,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 2px;
 }
 
-/* Celebration ray containers */
-.celebration-rays-left,
-.celebration-rays-right {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-/* Individual celebration ray dash */
-.cel-ray {
+.celebration-rays-svg {
   display: block;
-  width: 22px;
-  height: 4px;
-  border-radius: 999px;
-}
-
-/* Left rays: angled like confetti bursting outward-left */
-.cel-ray-red {
-  background: #EA4335;
-  transform: rotate(-30deg);
-  transform-origin: right center;
-}
-
-.cel-ray-green {
-  background: #34A853;
-  transform: rotate(0deg);
-}
-
-.cel-ray-yellow {
-  background: #FBBC04;
-  transform: rotate(30deg);
-  transform-origin: right center;
-}
-
-/* Right rays: mirrored, angled outward-right */
-.cel-ray-darkgreen {
-  background: #34A853;
-  transform: rotate(30deg);
-  transform-origin: left center;
-}
-
-.cel-ray-yellow2 {
-  background: #FBBC04;
-  transform: rotate(0deg);
-}
-
-.cel-ray-blue {
-  background: #4285F4;
-  transform: rotate(-30deg);
-  transform-origin: left center;
+  flex-shrink: 0;
 }
 
 .eastern-india-pill {
@@ -220,13 +173,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 260px;
-  height: 38px;
-  background: #FDE293;
-  border: 1.5px solid #F9AB00;
+  width: 268px;
+  height: 36px;
+  background: #FEEDAD;
+  border: none;
   border-radius: 9999px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(249, 171, 0, 0.2);
+  box-shadow: none;
 }
 
 .eastern-india-pill img {
@@ -234,8 +187,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 260px;
+  width: 250px;
   height: auto;
+  pointer-events: none;
 }
 
 /* ── Member Heading Section ── */

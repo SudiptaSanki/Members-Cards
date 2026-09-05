@@ -3,57 +3,58 @@ import React from 'react';
 export default function EasternIndiaBadge() {
   return (
     <div className="badge-wrapper">
-      {/* Crown with spark lines on top */}
+      {/* Crown with 6 spark lines on top */}
       <div className="crown-center">
         <svg
           className="crown-svg"
-          width="46"
-          height="38"
-          viewBox="0 0 60 48"
+          width="74"
+          height="36"
+          viewBox="0 0 80 40"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
-          {/* Spark lines radiating from crown */}
-          {/* Top-left spark */}
-          <line x1="14" y1="6" x2="8" y2="0" stroke="#FBBC04" strokeWidth="2.5" strokeLinecap="round" />
-          {/* Top-center spark */}
-          <line x1="30" y1="4" x2="30" y2="-2" stroke="#FBBC04" strokeWidth="2.5" strokeLinecap="round" />
-          {/* Top-right spark */}
-          <line x1="46" y1="6" x2="52" y2="0" stroke="#FBBC04" strokeWidth="2.5" strokeLinecap="round" />
+          {/* Left sparks */}
+          <line x1="22" y1="13" x2="18" y2="7" stroke="#FBBC04" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="15" y1="21" x2="6" y2="24" stroke="#FBBC04" strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="19" y1="29" x2="16" y2="30" stroke="#FBBC04" strokeWidth="2.2" strokeLinecap="round" />
+
+          {/* Right sparks */}
+          <line x1="58" y1="13" x2="62" y2="7" stroke="#FBBC04" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="65" y1="21" x2="74" y2="24" stroke="#FBBC04" strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="61" y1="29" x2="64" y2="30" stroke="#FBBC04" strokeWidth="2.2" strokeLinecap="round" />
 
           {/* Crown Body */}
           <path
-            d="M8 42L4 22L17 29L30 14L43 29L56 22L52 42H8Z"
+            d="M24 35L21 21L29 25L40 13L51 25L59 21L56 35H24Z"
             fill="#FBBC04"
-            stroke="#F9AB00"
-            strokeWidth="1.5"
+            stroke="#FBBC04"
+            strokeWidth="1.2"
             strokeLinejoin="round"
           />
-          {/* Crown base band */}
-          <path
-            d="M7 42H53"
-            stroke="#E37400"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          {/* Dots on the 5 tips */}
-          <circle cx="4" cy="22" r="2.5" fill="#FBBC04" stroke="#F9AB00" strokeWidth="1" />
-          <circle cx="17" cy="29" r="2.5" fill="#FBBC04" stroke="#F9AB00" strokeWidth="1" />
-          <circle cx="30" cy="14" r="3" fill="#FBBC04" stroke="#F9AB00" strokeWidth="1" />
-          <circle cx="43" cy="29" r="2.5" fill="#FBBC04" stroke="#F9AB00" strokeWidth="1" />
-          <circle cx="56" cy="22" r="2.5" fill="#FBBC04" stroke="#F9AB00" strokeWidth="1" />
+          {/* Tip dots */}
+          <circle cx="21" cy="20" r="2.2" fill="#FBBC04" />
+          <circle cx="40" cy="12" r="2.8" fill="#FBBC04" />
+          <circle cx="59" cy="20" r="2.2" fill="#FBBC04" />
         </svg>
       </div>
 
-      {/* Pill row: celebration rays on left, pill in center, celebration rays on right */}
+      {/* Pill row: Left rays, yellow pill, Right rays */}
       <div className="pill-with-rays">
-        {/* Left celebration rays */}
-        <div className="celebration-rays-left">
-          <span className="cel-ray cel-ray-red" />
-          <span className="cel-ray cel-ray-green" />
-          <span className="cel-ray cel-ray-yellow" />
-        </div>
+        {/* Left celebration rays: Red (top), Green (mid), Yellow (bot) */}
+        <svg
+          className="celebration-rays-svg celebration-rays-left"
+          width="32"
+          height="40"
+          viewBox="0 0 36 44"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <line x1="29" y1="13" x2="9" y2="2" stroke="#EA4335" strokeWidth="4.2" strokeLinecap="round" />
+          <line x1="26" y1="22" x2="4" y2="22" stroke="#34A853" strokeWidth="4.2" strokeLinecap="round" />
+          <line x1="29" y1="31" x2="9" y2="42" stroke="#FBBC04" strokeWidth="4.2" strokeLinecap="round" />
+        </svg>
 
         {/* Eastern India No. 1 GDG Badge Pill */}
         <div className="eastern-india-pill">
@@ -63,12 +64,20 @@ export default function EasternIndiaBadge() {
           />
         </div>
 
-        {/* Right celebration rays */}
-        <div className="celebration-rays-right">
-          <span className="cel-ray cel-ray-darkgreen" />
-          <span className="cel-ray cel-ray-yellow2" />
-          <span className="cel-ray cel-ray-blue" />
-        </div>
+        {/* Right celebration rays: Blue (top), Yellow (mid), Green (bot) */}
+        <svg
+          className="celebration-rays-svg celebration-rays-right"
+          width="32"
+          height="40"
+          viewBox="0 0 36 44"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <line x1="7" y1="13" x2="27" y2="2" stroke="#4285F4" strokeWidth="4.2" strokeLinecap="round" />
+          <line x1="10" y1="22" x2="32" y2="22" stroke="#FBBC04" strokeWidth="4.2" strokeLinecap="round" />
+          <line x1="7" y1="31" x2="27" y2="42" stroke="#34A853" strokeWidth="4.2" strokeLinecap="round" />
+        </svg>
       </div>
     </div>
   );
