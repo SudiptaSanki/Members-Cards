@@ -5,7 +5,6 @@ import MemberHeading from './MemberHeading';
 import PhotoPlaceholder from './PhotoPlaceholder';
 import CommunitySpark from './CommunitySpark';
 import GdgMark from './GdgMark';
-import DashedAccents from './DashedAccents';
 import GoogleBorderPattern from './GoogleBorderPattern';
 import './Frame.css';
 
@@ -19,8 +18,8 @@ export default function Frame({ userPhoto, onRemovePhoto, onUploadClick }) {
 
         {/* ── Inner White Social Showcase Card ── */}
         <div className="card-surface">
-          {/* Side dashed guide brackets in Google colors */}
-          <DashedAccents />
+          {/* Bottom-left pattern instead of dashed accents */}
+          <img src="/logos/Pattern.png" alt="" style={{ position: 'absolute', left: '-22px', bottom: '-22px', width: '120px', zIndex: 2, pointerEvents: 'none', opacity: 0.9 }} />
 
           {/* Top-right tilted GDG chevron mark */}
           <div className="gdg-mark-container">
@@ -117,18 +116,14 @@ export default function Frame({ userPhoto, onRemovePhoto, onUploadClick }) {
           {/* ── Bottom Section: Rocket Pill + Subtitle ── */}
           <footer className="card-footer-block">
             <div className="learn-build-pill">
-              <span className="pill-rocket" role="img" aria-label="rocket">🚀</span>
-              <span className="pill-text">Learn</span>
-              <span className="pill-dot dot-blue">•</span>
-              <span className="pill-text">Build</span>
-              <span className="pill-dot dot-red">•</span>
-              <span className="pill-text">Grow</span>
-              <span className="pill-dot dot-yellow">•</span>
-              <span className="pill-text">Together</span>
+              <img 
+                src="/Buttons/Learn Build Grow Together.png" 
+                alt="Learn Build Grow Together" 
+              />
             </div>
 
             <p className="community-subtext">
-              A Student Developer Community at Techno Main Saltlake
+              A Student Developer Community at Techno Main Salt Lake
             </p>
           </footer>
         </div>

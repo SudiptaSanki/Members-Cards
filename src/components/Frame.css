@@ -196,18 +196,26 @@
 }
 
 .eastern-india-pill {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  width: 260px;
+  height: 38px;
   background: #FDE293; /* Brighter Google Yellow */
   border: 1.5px solid #F9AB00;
   border-radius: 9999px;
-  padding: 6px 22px;
-  font-family: 'Outfit', 'Google Sans', 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #202124;
+  overflow: hidden;
   box-shadow: 0 2px 6px rgba(249, 171, 0, 0.2);
+}
+
+.eastern-india-pill img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 260px;
+  height: auto;
 }
 
 .badge-highlight {
@@ -261,18 +269,27 @@
 }
 
 .member-pill {
-  display: inline-block;
-  border: 2px solid #4285F4;
-  border-bottom: 5px solid #4285F4;
-  border-radius: 9999px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 42px;
   background: #FFFFFF;
-  padding: 4px 28px;
-  font-family: 'Outfit', 'Google Sans', 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 800;
-  color: #202124;
-  letter-spacing: 1.8px;
+  border: 2px solid #4285F4;
+  border-bottom: 5px solid #4285F4; /* 3D effect matching Top Logos */
+  border-radius: 9999px;
+  overflow: hidden;
   box-sizing: border-box;
+}
+
+.member-pill img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: auto;
 }
 
 /* ── 1:1 Photo Showcase Area ── */
@@ -373,8 +390,8 @@
 /* ── Lower-left Google Community Spark ── */
 .community-spark-container {
   position: absolute;
-  left: -14px;
-  bottom: -6px;
+  left: 12px;
+  top: 12px;
   z-index: 4;
   pointer-events: none;
 }
@@ -391,18 +408,26 @@
 }
 
 .learn-build-pill {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  width: 250px;
+  height: 32px;
   background: #FFFFFF;
   border: 1.5px solid #4285F4;
   border-radius: 9999px;
-  padding: 5px 18px;
-  font-family: 'Outfit', 'Google Sans', 'Inter', sans-serif;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #202124;
+  overflow: hidden;
   box-sizing: border-box;
+}
+
+.learn-build-pill img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: auto;
 }
 
 .pill-rocket {

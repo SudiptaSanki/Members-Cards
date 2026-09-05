@@ -20,7 +20,10 @@ export default function MemberHeading() {
 
       <div className="member-pill-wrapper">
         <span className="member-pill">
-          MEMBER
+          <img 
+            src="/Buttons/Member.png" 
+            alt="MEMBER" 
+          />
         </span>
       </div>
     </section>

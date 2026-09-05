@@ -63,8 +63,10 @@ export default function EasternIndiaBadge() {
 
       {/* Eastern India No. 1 GDG Badge Pill */}
       <div className="eastern-india-pill">
-        <span>We are </span>
-        <strong className="badge-highlight">Eastern India No. 1 GDG.</strong>
+        <img 
+          src="/Buttons/Eastern India NO.1 GDG.png" 
+          alt="We are Eastern India No. 1 GDG." 
+        />
       </div>
     </div>
   );
