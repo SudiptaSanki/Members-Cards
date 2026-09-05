@@ -177,7 +177,7 @@ export default function App() {
                 <span className="drop-zone-text">
                   {isDragging ? 'Drop your photo here!' : 'Tap to upload portrait or drag & drop'}
                 </span>
-                <span className="drop-zone-hint">Square 1:1 auto-cropper included • JPG, PNG, HEIC</span>
+                <span className="drop-zone-hint">JPG, PNG, HEIC</span>
               </div>
             )}
           </div>
