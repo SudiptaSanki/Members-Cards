@@ -144,55 +144,75 @@
   z-index: 3;
 }
 
-.crown-rays-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 2px;
-}
-
 .crown-center {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: -2px;
 }
 
 .crown-svg {
   display: block;
 }
 
-.rays-left,
-.rays-right {
+/* Pill row with celebration rays on both sides */
+.pill-with-rays {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-.ray {
+/* Celebration ray containers */
+.celebration-rays-left,
+.celebration-rays-right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Individual celebration ray dash */
+.cel-ray {
   display: block;
-  width: 14px;
-  height: 3px;
+  width: 22px;
+  height: 4px;
   border-radius: 999px;
 }
 
-.ray-red {
+/* Left rays: angled like confetti bursting outward-left */
+.cel-ray-red {
   background: #EA4335;
-  transform: rotate(25deg);
+  transform: rotate(-30deg);
+  transform-origin: right center;
 }
 
-.ray-green {
+.cel-ray-green {
   background: #34A853;
+  transform: rotate(0deg);
 }
 
-.ray-yellow {
+.cel-ray-yellow {
   background: #FBBC04;
-  transform: rotate(-25deg);
+  transform: rotate(30deg);
+  transform-origin: right center;
 }
 
-.ray-blue {
+/* Right rays: mirrored, angled outward-right */
+.cel-ray-darkgreen {
+  background: #34A853;
+  transform: rotate(30deg);
+  transform-origin: left center;
+}
+
+.cel-ray-yellow2 {
+  background: #FBBC04;
+  transform: rotate(0deg);
+}
+
+.cel-ray-blue {
   background: #4285F4;
-  transform: rotate(-25deg);
+  transform: rotate(-30deg);
+  transform-origin: left center;
 }
 
 .eastern-india-pill {
@@ -202,7 +222,7 @@
   justify-content: center;
   width: 260px;
   height: 38px;
-  background: #FDE293; /* Brighter Google Yellow */
+  background: #FDE293;
   border: 1.5px solid #F9AB00;
   border-radius: 9999px;
   overflow: hidden;
@@ -216,11 +236,6 @@
   transform: translate(-50%, -50%);
   width: 260px;
   height: auto;
-}
-
-.badge-highlight {
-  color: #1A73E8;
-  font-weight: 900;
 }
 
 /* ── Member Heading Section ── */
