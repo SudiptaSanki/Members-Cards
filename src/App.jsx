@@ -14,7 +14,7 @@ export default function App() {
   const fileInputRef = useRef(null);
   const cameraInputRef = useRef(null);
 
-  /* ── Read file as data URL (full quality, no compression) ── */
+  /* ── Read file as data URL ── */
   const readFile = useCallback((file) => {
     if (!file || !file.type.startsWith('image/')) return;
     const reader = new FileReader();
@@ -57,17 +57,16 @@ export default function App() {
     setUserPhoto(null);
   }, []);
 
-  /* ── Download handler (html2canvas → PNG at 3x) ── */
+  /* ── Download handler (html2canvas → PNG at 3x scale) ── */
   const handleDownload = useCallback(async () => {
     const frameEl = document.getElementById('capture-frame');
     if (!frameEl) return;
 
     setIsDownloading(true);
     try {
-      // Get computed dimensions so html2canvas renders at the correct size
       const rect = frameEl.getBoundingClientRect();
       const canvas = await html2canvas(frameEl, {
-        scale: 3,               // 3x for high-res crisp output
+        scale: 3,               // 3x for ultra-crisp high-res output
         width: rect.width,
         height: rect.height,
         useCORS: true,
@@ -75,7 +74,6 @@ export default function App() {
         backgroundColor: null,
         logging: false,
         ignoreElements: (el) => {
-          // Skip elements marked for exclusion (remove button, stars)
           return el.getAttribute?.('data-html2canvas-ignore') === 'true';
         },
         onclone: (clonedDoc) => {
@@ -86,7 +84,6 @@ export default function App() {
         },
       });
 
-      // Export as PNG (lossless — no quality loss)
       canvas.toBlob((blob) => {
         if (!blob) {
           alert('Could not generate image. Please try again.');
@@ -95,7 +92,7 @@ export default function App() {
         }
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
-        link.download = 'make-a-thon-attendee-card.png';
+        link.download = 'gdg-tmsl-member-card.png';
         link.href = url;
         document.body.appendChild(link);
         link.click();
@@ -114,7 +111,7 @@ export default function App() {
     <div className="app no-pull-refresh">
       <BackgroundDecorations />
       
-      {/* ── Cropper Modal ── */}
+      {/* ── 1:1 Cropper Modal ── */}
       {rawImage && (
         <ImageCropper
           image={rawImage}
@@ -128,18 +125,29 @@ export default function App() {
       
       {/* ── Header ── */}
       <header className="app-header">
-        <h1 className="app-title">Make-a-Thon</h1>
-        <p className="app-subtitle">Create your attendee card in seconds</p>
+        <div className="header-badge">
+          <span>👑 Eastern India No. 1 GDG</span>
+        </div>
+        <h1 className="app-title">
+          GDG TMSL <span className="app-title-accent">Member Card</span>
+        </h1>
+        <p className="app-subtitle">
+          Create and download your official showcase graphic for social media
+        </p>
       </header>
 
       {/* ── Main content ── */}
       <main className="app-main">
         {/* Frame preview */}
         <section className="preview-section">
-          <Frame userPhoto={userPhoto} onRemovePhoto={handleRemovePhoto} />
+          <Frame
+            userPhoto={userPhoto}
+            onRemovePhoto={handleRemovePhoto}
+            onUploadClick={() => fileInputRef.current?.click()}
+          />
         </section>
 
-        {/* Upload section */}
+        {/* Upload & Actions section */}
         <section className="upload-section">
           {/* Drag & drop zone */}
           <div
@@ -148,25 +156,28 @@ export default function App() {
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
+            role="button"
+            tabIndex={0}
+            aria-label="Upload member photo"
           >
             {userPhoto ? (
               <div className="drop-zone-success">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20,6 9,17 4,12"/>
                 </svg>
-                <span>Photo uploaded! Tap to change</span>
+                <span>Photo uploaded! Tap to replace or adjust</span>
               </div>
             ) : (
               <div className="drop-zone-prompt">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                   <polyline points="17,8 12,3 7,8"/>
                   <line x1="12" y1="3" x2="12" y2="15"/>
                 </svg>
                 <span className="drop-zone-text">
-                  {isDragging ? 'Drop your photo here!' : 'Tap to upload or drag & drop'}
+                  {isDragging ? 'Drop your photo here!' : 'Tap to upload portrait or drag & drop'}
                 </span>
-                <span className="drop-zone-hint">JPG, PNG, HEIC — any size, any ratio</span>
+                <span className="drop-zone-hint">Square 1:1 auto-cropper included • JPG, PNG, HEIC</span>
               </div>
             )}
           </div>
@@ -183,13 +194,14 @@ export default function App() {
             ref={cameraInputRef}
             type="file"
             accept="image/*"
-            capture="environment"
+            capture="user"
             onChange={handleFileChange}
             className="hidden-input"
           />
 
-          {/* Camera button (mobile) */}
+          {/* Camera button (for mobile selfie or quick snap) */}
           <button
+            type="button"
             className="btn btn-camera"
             onClick={() => cameraInputRef.current?.click()}
           >
@@ -203,25 +215,31 @@ export default function App() {
           {/* Action buttons */}
           <div className="action-buttons">
             <button
+              type="button"
               className="btn btn-download"
               onClick={handleDownload}
-              disabled={!userPhoto || isDownloading}
+              disabled={isDownloading}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7,10 12,15 17,10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
               </svg>
-              {isDownloading ? 'Preparing…' : 'Download Card'}
+              {isDownloading ? 'Exporting Card…' : 'Download Card'}
             </button>
 
             {userPhoto && (
-              <button className="btn btn-reset" onClick={handleRemovePhoto}>
+              <button
+                type="button"
+                className="btn btn-reset"
+                onClick={handleRemovePhoto}
+                title="Remove photo"
+              >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="18" y1="6" x2="6" y2="18"/>
                   <line x1="6" y1="6" x2="18" y2="18"/>
                 </svg>
-                Remove Photo
+                Reset
               </button>
             )}
           </div>
@@ -230,7 +248,7 @@ export default function App() {
 
       {/* ── Footer ── */}
       <footer className="app-footer">
-        <p>In collaboration with Friends of Figma Kolkata × GDG TMSL × LEO</p>
+        <p>Google Developer Groups On Campus • Techno Main Salt Lake</p>
       </footer>
     </div>
   );

@@ -1,7 +1,7 @@
-/* ══════════════════════════════════════════
-   App.css — Themed to match the card
-   (cream, pink, lime, maroon palette)
-   ══════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════════
+   App.css — GDG TMSL Member Showcase Generator Styling
+   Clean Google Developer Groups aesthetics (Google Sans / Outfit / Inter)
+   ══════════════════════════════════════════════════════════════ */
 
 /* ── App shell ── */
 .app {
@@ -11,49 +11,74 @@
   flex-direction: column;
   align-items: center;
   background:
-    radial-gradient(ellipse at 20% 0%, rgba(243, 167, 200, 0.25) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 100%, rgba(228, 238, 134, 0.25) 0%, transparent 50%),
-    #FBF8F2;
+    radial-gradient(circle at 15% 10%, rgba(66, 133, 244, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(234, 67, 53, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 20% 85%, rgba(251, 188, 4, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(52, 168, 83, 0.08) 0%, transparent 45%),
+    #F8F9FA;
   padding: 0 16px;
+  font-family: 'Outfit', 'Google Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #202124;
 }
 
 /* ── Header ── */
 .app-header {
   text-align: center;
-  padding: 24px 0 16px;
+  padding: 24px 0 14px;
   width: 100%;
-  max-width: 520px;
+  max-width: 530px;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #E8F0FE;
+  color: #1A73E8;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
 .app-title {
-  font-family: 'Baloo 2', sans-serif;
-  font-size: clamp(26px, 7vw, 36px);
+  font-size: clamp(26px, 6.5vw, 34px);
   font-weight: 800;
-  color: #5C1B1B;
-  line-height: 1.2;
+  color: #202124;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.app-title-accent {
+  color: #1A73E8;
 }
 
 .app-subtitle {
-  font-size: clamp(12px, 3vw, 15px);
-  color: rgba(92, 27, 27, 0.55);
-  margin-top: 4px;
-  font-weight: 600;
+  font-size: clamp(13px, 3.2vw, 15px);
+  color: #5F6368;
+  margin-top: 6px;
+  font-weight: 500;
 }
 
 /* ── Main ── */
 .app-main {
   width: 100%;
-  max-width: 520px;
+  max-width: 530px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding-bottom: 20px;
+  gap: 18px;
+  padding-bottom: 24px;
 }
 
 /* ── Preview section ── */
 .preview-section {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 /* ── Upload section ── */
@@ -64,68 +89,82 @@
   width: 100%;
 }
 
-/* ── Hidden inputs ── */
+/* ── Accessible hidden inputs ── */
 .hidden-input {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* ── Drop zone ── */
 .drop-zone {
   width: 100%;
-  min-height: 80px;
-  border: 2.5px dashed rgba(92, 27, 27, 0.3);
-  border-radius: 18px;
+  min-height: 82px;
+  border: 2px dashed #4285F4;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s ease;
-  background: rgba(228, 238, 134, 0.08);
+  transition: all 0.2s ease;
+  background: #FFFFFF;
   padding: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(66, 133, 244, 0.06);
   -webkit-tap-highlight-color: transparent;
 }
 
 .drop-zone:hover,
 .drop-zone--active {
-  border-color: #5C1B1B;
-  background: rgba(228, 238, 134, 0.18);
-  transform: scale(1.01);
+  border-color: #1A73E8;
+  background: #F1F6FE;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(66, 133, 244, 0.12);
 }
 
 .drop-zone--has-photo {
-  border-color: rgba(76, 175, 80, 0.5);
-  background: rgba(76, 175, 80, 0.06);
+  border-color: #34A853;
+  background: #F4FBF6;
   min-height: 56px;
 }
 
 .drop-zone--has-photo:hover {
-  border-color: rgba(76, 175, 80, 0.8);
-  background: rgba(76, 175, 80, 0.1);
+  border-color: #2E7D32;
+  background: #EAF7ED;
 }
 
 .drop-zone-prompt {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  color: #5C1B1B;
+  gap: 6px;
+  color: #1A73E8;
 }
 
 .drop-zone-text {
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14.5px;
+  color: #202124;
 }
 
 .drop-zone-hint {
   font-size: 12px;
-  opacity: 0.45;
+  color: #5F6368;
 }
 
 .drop-zone-success {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #388E3C;
+  color: #2E7D32;
   font-weight: 600;
   font-size: 14px;
 }
@@ -137,30 +176,35 @@
   justify-content: center;
   gap: 8px;
   border-radius: 999px;
-  font-family: 'Baloo 2', sans-serif;
+  font-family: 'Outfit', 'Google Sans', 'Inter', sans-serif;
   font-weight: 700;
   font-size: 15px;
-  padding: 14px 24px;
+  padding: 13px 24px;
   transition: all 0.2s ease;
   min-height: 48px;
+  border: none;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
 
 .btn:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 
 /* Camera button */
 .btn-camera {
-  background: rgba(92, 27, 27, 0.06);
-  color: #5C1B1B;
-  border: 1.5px solid rgba(92, 27, 27, 0.2);
+  background: #FFFFFF;
+  color: #3C4043;
+  border: 1.5px solid #DADCE0;
   width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .btn-camera:hover {
-  background: rgba(92, 27, 27, 0.12);
-  border-color: rgba(92, 27, 27, 0.4);
+  background: #F1F3F4;
+  border-color: #BDC1C6;
+  color: #202124;
 }
 
 /* Action buttons row */
@@ -173,19 +217,21 @@
 /* Download button */
 .btn-download {
   flex: 1;
-  background: #5C1B1B;
-  color: #FBF8F2;
-  box-shadow: 0 4px 16px rgba(92, 27, 27, 0.25);
+  background: #1A73E8;
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(26, 115, 232, 0.3);
 }
 
 .btn-download:hover:not(:disabled) {
-  background: #7a2a2a;
-  box-shadow: 0 6px 20px rgba(92, 27, 27, 0.35);
+  background: #1557B0;
+  box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
   transform: translateY(-1px);
 }
 
 .btn-download:disabled {
-  opacity: 0.35;
+  background: #E8EAED;
+  color: #9AA0A6;
+  box-shadow: none;
   cursor: not-allowed;
 }
 
@@ -195,41 +241,59 @@
 
 /* Reset button */
 .btn-reset {
-  background: rgba(92, 27, 27, 0.06);
-  color: #5C1B1B;
-  border: 1.5px solid rgba(92, 27, 27, 0.2);
-  padding: 14px 18px;
+  background: #FFFFFF;
+  color: #5F6368;
+  border: 1.5px solid #DADCE0;
+  padding: 13px 20px;
 }
 
 .btn-reset:hover {
-  background: rgba(92, 27, 27, 0.12);
-  border-color: rgba(92, 27, 27, 0.4);
+  background: #FCE8E6;
+  color: #D93025;
+  border-color: #F9DEDC;
 }
 
 /* ── Footer ── */
 .app-footer {
-  padding: 20px 0;
+  padding: 16px 0 24px;
   text-align: center;
   width: 100%;
-  max-width: 520px;
+  max-width: 530px;
 }
 
 .app-footer p {
-  font-size: 12px;
-  color: rgba(92, 27, 27, 0.35);
+  font-size: 12.5px;
+  color: #5F6368;
+  margin: 0;
 }
 
 /* ══════════════════════════════════════════
    Responsive
    ══════════════════════════════════════════ */
 
-@media (max-width: 380px) {
+@media (max-width: 550px) {
+  .preview-section {
+    zoom: 0.85;
+  }
+}
+
+@media (max-width: 480px) {
+  .preview-section {
+    zoom: 0.75;
+  }
+}
+
+@media (max-width: 420px) {
   .app {
-    padding: 0 10px;
+    padding: 0 12px;
+  }
+
+  .preview-section {
+    zoom: 0.65;
   }
 
   .app-header {
-    padding: 16px 0 8px;
+    padding: 18px 0 10px;
   }
 
   .btn {
@@ -237,25 +301,11 @@
     font-size: 14px;
     min-height: 44px;
   }
-
-  .drop-zone {
-    min-height: 64px;
-    padding: 12px;
-  }
-
-  .action-buttons {
-    flex-direction: column;
-  }
 }
 
-/* Desktop — slightly wider max */
-@media (min-width: 768px) {
-  .app {
-    padding: 0 24px;
-  }
-
-  .app-header {
-    padding: 32px 0 16px;
+@media (max-width: 360px) {
+  .preview-section {
+    zoom: 0.55;
   }
 }
 
@@ -272,9 +322,9 @@
 }
 
 .preview-section {
-  animation: fadeIn 0.4s ease-out;
+  animation: fadeIn 0.35s ease-out;
 }
 
 .upload-section {
-  animation: fadeIn 0.5s ease-out 0.1s both;
+  animation: fadeIn 0.45s ease-out 0.08s both;
 }

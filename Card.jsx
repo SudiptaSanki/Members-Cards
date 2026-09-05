@@ -170,7 +170,6 @@ export default function MakeAThonCard() {
       `;
       clone.appendChild(downloadOverrides);
 
-      const serializer = new XMLSerializer();
       const cloneHtml = clone.outerHTML;
 
       const svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
@@ -208,7 +207,7 @@ export default function MakeAThonCard() {
         alert("Couldn't render the image. Please try again.");
       };
       img.src = url;
-    } catch (err) {
+    } catch {
       setBusy(false);
       alert("Something went wrong while creating the image.");
     }
